@@ -7,8 +7,10 @@
     <div id="deck-1"></div>
     <div id="deck-2">
       <div id="regexp-checker">
-        <input type="text" name="regex" [(ngModel)]="regex" (ngModelChange)="regexInputChanged()">
-        <textarea aria-label="Check string is recognized in language"></textarea>
+        <label for="regex">Enter Regular Expression to generate Finite automata</label>
+        <input type="text" name="regex" id="regex" [(ngModel)]="regex" (ngModelChange)="regexInputChanged()">
+        <label for="string-parse">Enter string to check if it is recognized by regular language</label>
+        <textarea id="string-parse" aria-label="Check string is recognized in language"></textarea>
       </div>
       <div id="automata-display-panel">
         <template #messageContainer></template>
