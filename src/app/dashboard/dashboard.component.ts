@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   componentReference: any;
   index = 0;
   automata: Automata;
+  selected: 'dfa' | 'nfa' = 'dfa';
 
   @ViewChild('messageContainer', { read: ViewContainerRef }) entry: ViewContainerRef;
 
@@ -41,9 +42,16 @@ export class DashboardComponent implements OnInit {
     if (this.regex !== '' || this.regex !== null) {
       try {
         this.automata = new Automata(this.regex);
-        this.createSvgFrom(this.automata.nfaDotScript);
+        this.createSvg();
       } catch (error) {
       }
+    }
+  }
+
+  createSvg() {
+    switch (this.selected) {
+      case 'dfa': return this.createSvgFrom(this.automata.dfaDotScript);
+      case 'nfa': return this.createSvgFrom(this.automata.nfaDotScript);
     }
   }
 
@@ -52,6 +60,16 @@ export class DashboardComponent implements OnInit {
       this.createComponent(this.sanitizer.bypassSecurityTrustHtml(svg.substring(this.STARTING_INDEX, svg.length)));
     }).catch(error => {
     });
+  }
+
+  setNfa() {
+    this.selected = 'nfa';
+    this.createSvgFrom(this.automata.nfaDotScript);
+  }
+
+  setDfa() {
+    this.selected = 'dfa';
+    this.createSvgFrom(this.automata.dfaDotScript);
   }
 
   ngOnInit(): void {

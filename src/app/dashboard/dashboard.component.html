@@ -13,7 +13,13 @@
         <textarea id="string-parse" aria-label="Check string is recognized in language"></textarea>
       </div>
       <div id="automata-display-panel">
-        <template #messageContainer></template>
+        <div id="automata-toolbar">
+          <a [class.selected]="this.selected === 'nfa'" (click)="setNfa()">Non-deterministic Finite Automata</a>
+          <a [class.selected]="this.selected === 'dfa'" (click)="setDfa()">Deterministic Finite Automata</a>
+        </div>
+        <div id="automata-container">
+          <template #messageContainer></template>
+        </div>
       </div>
     </div>
   </div>

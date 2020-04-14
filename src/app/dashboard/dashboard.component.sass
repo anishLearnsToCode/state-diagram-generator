@@ -31,8 +31,27 @@
     background-color: lightcyan
 
   #automata-display-panel
-    display: inline-flex
-    justify-content: center
-    align-content: center
-    align-items: center
-    justify-items: center
+
+
+    #automata-toolbar
+      display: inline-grid
+      grid-template-columns: 1fr 1fr
+      grid-gap: 20px
+      justify-items: center
+      align-items: center
+      background-color: lightcyan
+
+      a.selected
+        text-decoration: underline
+        color: #125699
+
+      a:hover
+        cursor: pointer
+        text-decoration: underline
+
+    #automata-container
+      display: inline-flex
+      justify-content: center
+      align-content: center
+      align-items: center
+      justify-items: center
