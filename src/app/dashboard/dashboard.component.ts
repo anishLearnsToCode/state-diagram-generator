@@ -1,6 +1,5 @@
 import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {SvgRendererService} from '../svg-renderer.service';
-import regParser from 'automata.js';
 import {DynamicMessageComponent} from '../dynamic-message/dynamic-message.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Automata} from '../models/automata';
@@ -47,6 +46,7 @@ export class DashboardComponent implements OnInit {
     if (this.regex !== '' || this.regex !== null) {
       try {
         this.automata = new Automata(this.regex);
+        console.log(this.automata.transitionStateDiagram);
         this.createSvg();
       } catch (error) {
       }

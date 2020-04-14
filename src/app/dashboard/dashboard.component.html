@@ -4,7 +4,15 @@
   </div>
 
   <div id="main">
-    <div id="deck-1"></div>
+    <div id="deck-1">
+      <table *ngIf="automata !== undefined">
+        <tr ngFor="let state in automata.dfa.transitions">
+          <td>Anish</td>
+        </tr>
+      </table>
+    </div>
+
+
     <div id="deck-2">
       <div id="regexp-checker">
         <label for="regex">Enter Regular Expression to generate Finite automata</label>

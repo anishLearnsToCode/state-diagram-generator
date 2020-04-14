@@ -1,7 +1,10 @@
-export class FiniteStateMachine {
+export interface FiniteStateMachine {
   initialState: string;
-  acceptState: number[];
+  acceptStates: string[];
   type: 'DFA' | 'NFA';
   numOfStates: number;
   transitions;
+
+  toDotScript(): string;
+  match(text: string): boolean;
 }
