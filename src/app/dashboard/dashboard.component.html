@@ -7,7 +7,7 @@
     <div id="deck-1"></div>
     <div id="deck-2">
       <div id="regexp-checker">
-        <input type="text" name="regex">
+        <input type="text" name="regex" [(ngModel)]="regex" (ngModelChange)="regexInputChanged()">
         <textarea aria-label="Check string is recognized in language"></textarea>
       </div>
       <div id="automata-display-panel"></div>

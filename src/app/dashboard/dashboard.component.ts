@@ -9,11 +9,25 @@ import regParser from 'automata.js';
 })
 export class DashboardComponent implements OnInit {
 
+  regex: string;
+
   constructor(private readonly svgRendererService: SvgRendererService) {
-    const parser = new regParser.RegParser('a*b');
-    const dfa = parser.parseToDFA();
-    const dotScript = dfa.toDotScript();
-    console.log(dotScript);
+  }
+
+  regexInputChanged() {
+    console.log('called');
+    if (this.regex !== '' || this.regex !== null) {
+      try {
+        const parser = new regParser.RegParser(this.regex);
+        const dfa = parser.parseToDFA();
+        const dotScript = dfa.toDotScript();
+        console.log(dotScript);
+        const svg = this.svgRendererService.render(dotScript);
+        console.log(svg);
+      } catch (error) {
+        // do nothing
+      }
+    }
   }
 
   ngOnInit(): void {
