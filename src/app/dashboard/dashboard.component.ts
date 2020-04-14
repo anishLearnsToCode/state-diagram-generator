@@ -13,13 +13,12 @@ import {Automata} from '../models/automata';
 export class DashboardComponent implements OnInit {
   private readonly STARTING_INDEX = 264;
   regex: string;
-  title: string;
   componentReference: any;
-  index = 0;
   automata: Automata;
   selected: 'dfa' | 'nfa' = 'dfa';
+  text = '';
 
-  @ViewChild('messageContainer', { read: ViewContainerRef }) entry: ViewContainerRef;
+  @ViewChild('messageContainer', {read: ViewContainerRef}) entry: ViewContainerRef;
 
   constructor(private readonly svgRendererService: SvgRendererService,
               private readonly resolver: ComponentFactoryResolver,
@@ -36,6 +35,12 @@ export class DashboardComponent implements OnInit {
 
   destroyComponent() {
     this.componentReference.destroy();
+  }
+
+  recognizedByLanguage(): boolean {
+    if (this.automata && this.automata.dfa) {
+      return this.automata.dfa.match(this.text);
+    }
   }
 
   regexInputChanged() {
