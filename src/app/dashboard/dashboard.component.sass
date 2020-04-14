@@ -1,0 +1,37 @@
+#component-wrapper
+  display: grid
+  height: 100vh
+  width: 100vm
+  background-color: lightgray
+
+  grid-template-rows: 25px 1fr
+
+#toolbar
+  background-color: darkseagreen
+  display: inline-flex
+  justify-content: flex-start
+  align-items: center
+  padding-left: 10px
+
+#main
+  display: grid
+  background-color: darkgrey
+  grid-template-rows: repeat(2, 1fr)
+
+#deck-1
+  background-color: cyan
+
+#deck-2
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  background-color: #125699
+
+  #regexp-checker
+    display: inline-grid
+    grid-gap: 10px
+    padding: 20px
+    grid-template-rows: 20px 35px
+    background-color: lightcyan
+
+  #automata-display-panel
+    background-color: green
