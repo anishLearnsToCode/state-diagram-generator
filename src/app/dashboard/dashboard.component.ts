@@ -3,6 +3,7 @@ import {SvgRendererService} from '../svg-renderer.service';
 import regParser from 'automata.js';
 import {DynamicMessageComponent} from '../dynamic-message/dynamic-message.component';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Automata} from '../models/automata';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +11,12 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./dashboard.component.sass']
 })
 export class DashboardComponent implements OnInit {
+  private readonly STARTING_INDEX = 264;
   regex: string;
   title: string;
   componentReference: any;
   index = 0;
+  automata: Automata;
 
   @ViewChild('messageContainer', { read: ViewContainerRef }) entry: ViewContainerRef;
 
@@ -35,20 +38,20 @@ export class DashboardComponent implements OnInit {
   }
 
   regexInputChanged() {
-    console.log('called');
     if (this.regex !== '' || this.regex !== null) {
       try {
-        const parser = new regParser.RegParser(this.regex);
-        const dfa = parser.parseToDFA();
-        const dotScript = dfa.toDotScript();
-        this.svgRendererService.render(dotScript).then((svg: string) => {
-          this.createComponent(this.sanitizer.bypassSecurityTrustHtml(svg.substring(264, svg.length)));
-        }).catch(error => {
-        });
-
+        this.automata = new Automata(this.regex);
+        this.createSvgFrom(this.automata.nfaDotScript);
       } catch (error) {
       }
     }
+  }
+
+  createSvgFrom(dotScript: string): void {
+    this.svgRendererService.render(dotScript).then((svg: string) => {
+      this.createComponent(this.sanitizer.bypassSecurityTrustHtml(svg.substring(this.STARTING_INDEX, svg.length)));
+    }).catch(error => {
+    });
   }
 
   ngOnInit(): void {
