@@ -10,7 +10,9 @@
         <input type="text" name="regex" [(ngModel)]="regex" (ngModelChange)="regexInputChanged()">
         <textarea aria-label="Check string is recognized in language"></textarea>
       </div>
-      <div id="automata-display-panel"></div>
+      <div id="automata-display-panel">
+        <template #messageContainer></template>
+      </div>
     </div>
   </div>
 </div>
