@@ -61,7 +61,6 @@ export class DashboardComponent implements OnInit {
     if (this.regex !== '' || this.regex !== null) {
       try {
         this.automata = new Automata(this.regex);
-        console.log(this.automata.transitionStateDiagram);
         this.createSvg();
       } catch (error) {
       }
