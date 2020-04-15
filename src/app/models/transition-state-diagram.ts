@@ -6,6 +6,7 @@ export class TransitionStateDiagram {
   initialState: string;
   finalStates: string[];
   transitionStates: Transitions[] = [];
+  symbols = new Set<string>();
 
   constructor(dfa: FiniteStateMachine) {
     this.initialState = dfa.initialState;
@@ -15,6 +16,7 @@ export class TransitionStateDiagram {
       const array = [];
       for (const nextState in dfa.transitions[state]) {
         const symbol = dfa.transitions[state][nextState];
+        this.symbols.add(symbol);
         array.push({symbol, nextState});
       }
       this.transitionStates.push(array);

@@ -24,6 +24,13 @@ export class DashboardComponent implements OnInit {
               private readonly sanitizer: DomSanitizer) {
   }
 
+  generateArray(count: number): number[] {
+    return [...Array(count).keys()];
+  }
+
+  isAcceptState(state: string): boolean {
+    return this.automata.dfa.acceptStates.indexOf(state) >= 0 ;
+  }
 
   createComponent(message) {
     this.entry.clear();
