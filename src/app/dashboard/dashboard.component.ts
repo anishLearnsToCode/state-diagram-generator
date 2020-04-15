@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
       this.automata.transitionStateDiagram.transitionStates[state].has(symbol)) {
       return this.automata.transitionStateDiagram.transitionStates[state].get(symbol);
     }
-    return 'epsilon';
+    return '&Phi;';
   }
 
   createComponent(message) {

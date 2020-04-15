@@ -15,10 +15,8 @@
 
         <tr *ngFor="let state of generateArray(automata.dfa.numOfStates); let i = index">
           <td [ngClass]="{'accept-state': isAcceptState(i.toString())}"><span *ngIf="i === 0">	&rarr; </span>{{i}}</td>
-          <td *ngFor="let symbol of automata.transitionStateDiagram.symbols; let transitionIndex = index">
-<!--            {{automata.transitionStateDiagram.transitionStates[state].}}-->
+          <td *ngFor="let symbol of automata.transitionStateDiagram.symbols; let transitionIndex = index" [innerHTML]="getNextStateFor(i.toString(), symbol)">
             {{getNextStateFor(i.toString(), symbol)}}
-<!--            {{i.toString()}} - {{symbol}}-->
           </td>
         </tr>
       </table>
