@@ -5,8 +5,7 @@ import {AppComponent} from './app.component';
 
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '*', component: AppComponent }
+  { path: '', component: DashboardComponent}
 ];
 
 @NgModule({
