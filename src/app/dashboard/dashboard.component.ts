@@ -32,6 +32,14 @@ export class DashboardComponent implements OnInit {
     return this.automata.dfa.acceptStates.indexOf(state) >= 0 ;
   }
 
+  getNextStateFor(state: string, symbol: string) {
+    if (this.automata.transitionStateDiagram.transitionStates[state] &&
+      this.automata.transitionStateDiagram.transitionStates[state].has(symbol)) {
+      return this.automata.transitionStateDiagram.transitionStates[state].get(symbol);
+    }
+    return 'epsilon';
+  }
+
   createComponent(message) {
     this.entry.clear();
     const factory = this.resolver.resolveComponentFactory(DynamicMessageComponent);

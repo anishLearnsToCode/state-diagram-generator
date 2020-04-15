@@ -1,3 +1,3 @@
 import {Transition} from './transition';
 
-export type Transitions = Transition[];
+export type Transitions = Map<string, string>;

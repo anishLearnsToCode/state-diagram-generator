@@ -13,13 +13,13 @@ export class TransitionStateDiagram {
     this.finalStates = dfa.acceptStates;
 
     for (const state in dfa.transitions) {
-      const array = [];
+      const transitions = new Map<string, string>();
       for (const nextState in dfa.transitions[state]) {
         const symbol = dfa.transitions[state][nextState];
         this.symbols.add(symbol);
-        array.push({symbol, nextState});
+        transitions.set(symbol, nextState);
       }
-      this.transitionStates.push(array);
+      this.transitionStates.push(transitions);
     }
   }
 }
