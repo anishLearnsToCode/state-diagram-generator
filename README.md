@@ -1,27 +1,50 @@
-# StateDiagramGenerator
+# State Diagram Generator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+This project has been built for the subject Theory of Computation (MC-204) at teh Delhi Technological 
+University (DTU).
 
-## Development server
+## Running the project on the browser
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+his has been eployed on GitHub Pages and a live version can be viewed 
+[here](https:///www.anishLearnsToCode.github.io)
 
-## Code scaffolding
+## Running the Project locally
+To run this project locally you must have the following softwares/packages installed on your
+local machine:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Git](https://git-scm.com/)
+- [Node](https://nodejs.org/en/)
+- [Angular](https://angular.io/) - Can be installed after adding node on your machine
+- [Typescript](https://www.typescriptlang.org/) - Can be added after installing Node on your machine
 
-## Build
+To add angular run the following command ater adding node
+```bash
+npm i -g @angular/angular-cli
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To add typescript run the following command after adding node
+```bash
+npm install -g typescript
+```
 
-## Running unit tests
+Clone this repository on your machine using
+```bash
+git clone https://github.com/anishLearnsToCode/state-diagram-generator.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To run locally
+```bash
+cd state-diagram-generator
+ng serve
+```
 
-## Running end-to-end tests
+Now, the project will run on your local machine's port 4200. See [here](localhost:4200)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## About the Project
 
-## Further help
+This project has been created to display the deterministic finite state automata (DFA) ot the 
+Non-Deterministic Finite State Automata (NFA) of any given valid regular expression.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+A deterministic automata along with it's transmission table will be generated for the given
+regular expression and the user can also check whether any given string is recognized by that
+particular regular language.
