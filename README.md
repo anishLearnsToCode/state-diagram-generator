@@ -9,7 +9,7 @@ his has been eployed on GitHub Pages and a live version can be viewed
 [here](https:///www.anishLearnsToCode.github.io)
 
 ## Running the Project locally
-To run this project locally you must have the following softwares/packages installed on your
+To run this project locally you must have the following software/packages installed on your
 local machine:
 
 - [Git](https://git-scm.com/)
@@ -17,7 +17,7 @@ local machine:
 - [Angular](https://angular.io/) - Can be installed after adding node on your machine
 - [Typescript](https://www.typescriptlang.org/) - Can be added after installing Node on your machine
 
-To add angular run the following command ater adding node
+To add angular run the following command after adding node
 ```bash
 npm i -g @angular/angular-cli
 ```
